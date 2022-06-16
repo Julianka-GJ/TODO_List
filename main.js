@@ -6,11 +6,11 @@ listEL.classList.add('name-box-list');
 
 
 
-btnClickEl.onclick = () => {
+const addElemItem = () => {
     let val = document.getElementById('user-name').value;
     const newListEL = document.createElement('li');
 
-    if (enterNameEl.value === '') {
+    if (!val.trim()) {
         alert(`Error no name entered!`);
     }
     else {
@@ -19,3 +19,8 @@ btnClickEl.onclick = () => {
         enterNameEl.value = '';
     }
 };
+
+btnClickEl.addEventListener('click', addElemItem);
+enterNameEl.addEventListener('keydown', el => {
+    if (el.code === 'Enter') addElemItem();
+});
