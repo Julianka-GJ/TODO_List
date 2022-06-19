@@ -34,7 +34,7 @@ body {
     text-align: center;
   }
 
-  .name-box input {
+  .text-enter {
     width: 90%;
     padding: 10px 0;
     font-size: 16px;
@@ -46,7 +46,7 @@ body {
     background: transparent;
   }
 
-  .name-box button {
+  button {
     position: relative;
     padding: 10px 20px;
     border-radius: 10px;
@@ -66,27 +66,54 @@ body {
                 0 0 100px #03e9f4;
   }
 
-  .name-box span {
-    color: #03e9f4;
-    font-size: 24px;
+  .button-all {
+    padding: 5px 10px;
+    font-size: 12px;
+    letter-spacing: 2px;
   }
 
   .name-box-list {
     text-align: center;
     padding: 0;
+    list-style: none;
+  }
+
+  ul {
+    margin-bottom: 50px;
   }
 
   .name-box-list li {
-    padding-top: 5px;
+    display: flex;
+    padding-top: 10px; 
     font-size: 18px;
     letter-spacing: 2px;
   }
   
-
-.hidden {
+  .hidden {
     display: none;
-}
+  }
 
-.visible {
-    display: block;
-}
+  .checkbox {
+    margin-right: 10px;
+  }
+
+  .delete {
+    padding: 5px;
+    margin-left: 15px;
+    border-radius: 5px;
+    border: none;
+    background: #05838a;
+    color: #ffffff;
+    font-size: 12px;
+    text-transform: uppercase;
+    transition-duration: 1s;
+    box-shadow: 0 0 5px #03e9f4,
+                  0 0 10px #136c70;
+  }
+
+  li.checked > span {
+    text-decoration: line-through;
+  }
+
+
+
