@@ -39,7 +39,7 @@ body {
     padding: 10px 0;
     font-size: 16px;
     color: #ffffff;
-    margin-bottom: 60px;
+    margin-bottom: 50px;
     border: none;
     border-bottom: 1px solid #ffffff;
     outline: none;
@@ -113,6 +113,15 @@ body {
 
   li.checked > span {
     text-decoration: line-through;
+  }
+
+  .invalid { 
+    border-color: red; 
+  }
+
+  .error-message {
+    border-color: #cb4c4c;
+    color: #cb4c4c;
   }
 
 

@@ -1,5 +1,12 @@
 
 (() => {
+    const loginFormEl = document.getElementById('login-form');
+    const emailinputEl = document.getElementById('email');
+    const passwordInputEl = document.getElementById('password');
+    const loginBtnEl = document.getElementById('button-login');
+    const spanEl = document.getElementById('error-message');
+
+    const listBlockEl = document.getElementById('list-block');
     const addItemBtnEl = document.getElementById('toggle-btn');
     const enterNameEl = document.getElementById('user-name');
     const listEL = document.getElementById('list-elm');
@@ -7,6 +14,9 @@
     const actionBlockEL = document.getElementById('action-block');
     const checkAllBtnEL = document.getElementById('check-all');
     const deleteAllBtnEL = document.getElementById('delete-all');
+
+
+    //------------------------------------------------------------------------------------------
 
     listEL.classList.add('name-box-list');
 
@@ -71,6 +81,57 @@
         });
     };
 
+
+//---------------------------------login-form------------------------------------------------
+
+    const user = {
+        login: 'admin@gmail.com',
+        parol: '123'
+    };
+
+
+    const entryDataUser = () => {
+        let valEmailInput = document.getElementById('email').value;
+        let valPasswordInput = document.getElementById('password').value;
+
+        if ((valEmailInput != user.login) || (valPasswordInput != user.parol)) {
+            spanEl.innerHTML = 'You entered incorrect data!';
+            emailinputEl.classList.toggle('error-message');
+            passwordInputEl.classList.toggle('error-message');
+
+            emailinputEl.value = '';
+            passwordInputEl.value = '';
+            loginBtnEl.disabled = true;
+        }
+
+        else {
+            loginFormEl.classList.toggle('hidden');
+            listBlockEl.classList.remove('hidden');
+        }
+    }
+
+    emailinputEl.onblur = function () {
+        if (!emailinputEl.value.includes('@')) {
+            emailinputEl.classList.add('invalid');
+            spanEl.innerHTML = 'Please, enter correct email!';
+        }
+    };
+
+    emailinputEl.onfocus = function () {
+        emailinputEl.value = '';
+        emailinputEl.classList.remove('error-message');
+        spanEl.innerHTML = '';
+        if (this.classList.contains('invalid')) {
+            this.classList.remove('invalid');
+        }
+    };
+
+    passwordInputEl.onfocus = function () {
+        passwordInputEl.classList.remove('error-message');
+        spanEl.innerHTML = '';
+    };
+
+
     addItemBtnEl.addEventListener('click', onAddElemItem);
     enterNameEl.addEventListener('keydown', el => {
         if (el.code === 'Enter') onAddElemItem();
@@ -80,6 +141,7 @@
     checkAllBtnEL.addEventListener('click', onCheckElemAll);
     listEL.addEventListener('click', onDeletItem);
     listEL.addEventListener('change', onCheckItem);
+    loginBtnEl.addEventListener('click', entryDataUser);
 
 })();
 
